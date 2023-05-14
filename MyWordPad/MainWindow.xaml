@@ -1,0 +1,88 @@
+﻿<Window x:Class="MyWordPad.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyWordPad"
+        mc:Ignorable="d"
+        Title="Ronikari's WordPad" Height="331" Width="600"
+        WindowStartupLocation="CenterScreen">
+    
+    <!-- Это информирует элемент управления Window о том, какие обработчики вызывать
+         при поступлении команд Open и Save -->
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Open"
+                        Executed="OpenCmdExecuted"
+                        CanExecute="OpenCmdCanExecute"/>
+        <CommandBinding Command="ApplicationCommands.Save"
+                        Executed="SaveCmdExecuted"
+                        CanExecute="SaveCmdCanExecute"/>
+    </Window.CommandBindings>
+    
+    <!-- Эта панель устанавливает содержимое окна -->
+    <DockPanel>
+        <!-- Стыковать систему меню к верхней части -->
+        <Menu DockPanel.Dock="Top" Background="White" BorderBrush="Black">
+            <MenuItem Header="_Файл" HorizontalAlignment="Left">
+                <MenuItem Command="ApplicationCommands.Open"/>
+                <MenuItem Command="ApplicationCommands.Save"/>
+                <Separator/>
+                <MenuItem Header="_Выход" MouseEnter="MouseEnterExitArea" MouseLeave="MouseLeaveArea" Click="FileExit_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Правка">
+                <MenuItem Command="ApplicationCommands.Cut"/>
+                <MenuItem Command="ApplicationCommands.Copy"/>
+                <MenuItem Command="ApplicationCommands.Paste"/>
+            </MenuItem>
+            <MenuItem Header="_Инструменты">
+                <MenuItem Header="_Орфографические подсказки" MouseEnter="MouseEnterToolsHintsArea" MouseLeave="MouseLeaveArea"
+                          Click="ToolsSpellingHints_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- Поместить панель инструментов под областью меню -->
+        <ToolBar DockPanel.Dock="Top">
+            <Button Content="Выход" MouseEnter="MouseEnterExitArea" MouseLeave="MouseLeaveArea" Click="FileExit_Click"/>
+            <Separator/>
+            <Button Content="Проверить" MouseEnter="MouseEnterToolsHintsArea" MouseLeave="MouseLeaveArea"
+                    Click="ToolsSpellingHints_Click" Cursor="Help"/>
+        </ToolBar>
+
+        <!-- Разместить строку состояния внизу -->
+        <StatusBar DockPanel.Dock="Bottom" Background="Beige">
+            <StatusBarItem>
+                <TextBlock Name="statBarText" Text="Готово"/>
+            </StatusBarItem>
+        </StatusBar>
+
+        <Grid DockPanel.Dock="Left" Background="AliceBlue">
+            <!-- Определить строки и колонки -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="299*" />
+                <ColumnDefinition Width="501*" />
+            </Grid.ColumnDefinitions>
+
+            <GridSplitter Grid.Column="1" Width="5" Background="Gray" HorizontalAlignment="Left" Margin="9,0,0,0"/>
+            <StackPanel Grid.Column="0">
+                <Label Name="lblSpellingInstructions" FontSize="14" Margin="10,10,0,0">
+                    Орфографические подсказки
+                </Label>
+
+                <Expander Name="expanderSpelling" Header="Попробуйте это!" Margin="10,10,10,10">
+                    <!-- Будет генерироваться программно -->
+                    <Label Name="lblSpellingHints" FontSize="12"/>
+                </Expander>
+            </StackPanel>
+
+            <!-- Это будет областью для ввода -->
+            <TextBox Grid.Column="1"
+                     SpellCheck.IsEnabled="True"
+                     AcceptsReturn="True"
+                     Name="txtData" FontSize="14"
+                     BorderBrush="Blue"
+                     VerticalScrollBarVisibility="Auto"
+                     HorizontalScrollBarVisibility="Auto">
+            </TextBox>
+        </Grid>
+    </DockPanel>
+</Window>

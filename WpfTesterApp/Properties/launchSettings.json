@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "WpfTesterApp": {
+      "commandName": "Project",
+      "commandLineArgs": "/godmode"
+    }
+  }
+}

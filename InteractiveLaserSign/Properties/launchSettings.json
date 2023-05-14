@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "InteractiveLaserSign": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:62428;http://localhost:62429"
+    }
+  }
+}

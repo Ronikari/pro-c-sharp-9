@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "BinaryWriterReader": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:62394;http://localhost:62395"
+    }
+  }
+}

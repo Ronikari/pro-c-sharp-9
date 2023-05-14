@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "MyAsmBuilder": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:62360;http://localhost:62367"
+    }
+  }
+}

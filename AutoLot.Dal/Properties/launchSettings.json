@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "AutoLot.Dal": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:62418;http://localhost:62419"
+    }
+  }
+}

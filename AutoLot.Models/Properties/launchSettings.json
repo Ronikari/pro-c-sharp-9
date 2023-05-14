@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "AutoLot.Models": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:62416;http://localhost:62417"
+    }
+  }
+}
